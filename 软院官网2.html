@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>大连理工大学软件学院</title>
+</head>
+<style type="text/css">
+    @charset "utf-8";
+    /*清除内外边距*/
+    body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,/* structural elements 结构元素 */
+        dl,dt,dd,ul,ol,li, /* list elements 列表元素 */
+        pre,/* text formatting elements 文本格式元素 */
+        fieldset,legend,button,input,textarea,/* form elements 表单元素 */
+        th,td { /* table elements 表格元素 */
+             margin: 0;
+             padding:0;
+    }
+    /*设置默认字体*/
+    body,button,input,select,textarea{ /* for ie */
+        /*font:12px/1 Tahoma,Helvetica,Arial,"宋体“，sans-serif;*/
+        font:12px/1"微软雅黑",Tahoma,Helvetica,Arial,"\bb\af",sans-serif;/* 用 ascii 字符表示，使得在任何编码下都无问题 */
+    }
+    body{
+        background:url(http://ssdut.dlut.edu.cn/images/a_bg.png) repeat-x top #ffffff;/*#fffff是干啥的？*/
+    }
+    h1{font-size:18px ; /* 18px / 12px = 1.5 */  }
+    h2{font-size: 14px;}
+    h3{font-size: 12px;}
+    h4,h5,h6{font-size:100%;}
+
+    address,cite,dfn,em,var{font-style:normal;}/* 将斜体扶正 */
+    code,kbd,pre,samp,tt{font-family: "Courier New",Courier, monospace;}/* 统一等宽字体 */
+    small{font-size: 12px;}/* 小于 12px 的中文很难阅读，让 small 正常化 */
+    /* 重置列表元素 */
+    ul,ol{list-style: none;}
+    /* 重置文本格式元素 */
+    a{
+        text-decoration:none;
+        color: #676767;
+    }
+    a:hover{
+        text-decoration: none;
+        color:#cc0000;
+    }
+    /*话说这个有什么用？*/
+    abbr[title],acronym[title]{ /* 注：1.ie6 不支持 abbr; 2.这里用了属性选择符，ie6 下无效果 */
+        border-bottom: 1px dotted;
+        cursor:help;
+    }
+    q:before,q:after{content: ''}
+    /* 重置表单元素 */
+    legend{color:#000;}/*for ie6*/
+    fieldset,img,{border:none;}/*img无边框*/
+    button,input,select,textarea{
+        font-size:100%;/* 使得表单元素在 ie 下能继承字体大小 */
+    }
+    /* 重置表格元素 */
+    table{
+        border-collapse:collapse;
+        border-spacing:0;
+    }
+    /* 重置 hr */
+    hr{
+        border:none;
+        height:1px;
+    }
+    /* 让非ie浏览器默认也显示垂直滚动条，防止因滚动条引起的闪烁 */
+    html{overflow-y:scroll;}
+    /*占位符*/
+    .placeholer{height:10px;overflow:hidden;clear:both}
+    /*清理浮动*/
+    .clearfix:after{
+        content:".";
+        display:block;
+        height:0;
+        clear:both;
+        visibility:hidden;
+    }
+    /*1.布局通用样式*/
+    textarea{overflow: auto;}
+    .fl{float: left;}
+    .fr{float: right;}
+    .tl{text-align: left;}
+    .tr{text-align: right;}
+    .tc{text-align:center;}
+    .fb{font-weight: bold;}
+    .nobg{background: none;}
+    .noborder{border:none;}
+    .last{
+        margin-left:0px;
+        margin-right: 0px;
+        border-left: none;
+        margin-left:0px !important;
+        margin-right: 0px!important;
+        border-left: none !important;
+        border-right:none !important;
+    }
+    .cb{
+        clear:both;
+        font-size:0px;
+        height:0px;
+        display:block;
+        border:0px;
+        width: 0px;
+    }
+    .f10 { font-size:10px;}
+    .f12 { font-size:12px;}
+    .f13 { font-size:13px;}
+    .f14 { font-size:14px;}
+    .f15 { font-size:15px;}
+    .f16 { font-size:16px;}
+    .f17 { font-size:17px;}
+    .f18 { font-size:18px;}
+    .f20 { font-size:20px;}
+    .f22 { font-size:22px;}
+    .f24 { font-size:24px;}
+    .f26 { font-size:26px;}
+    .f28 { font-size:28px;}
+    .f30 { font-size:30px;}
+    .f32 { font-size:32px;}
+    .f34 { font-size:34px;}
+    .f36 { font-size:36px;}
+    .f38 { font-size:38px;}
+    .f40 { font-size:40px;}
+    .f42 { font-size:42px;}
+    .f44 { font-size:44px;}
+    .f46 { font-size:46px;}
+    .f48 { font-size:48px;}
+    .f50 { font-size:50px;}
+    .f52 { font-size:52px;}
+
+    .lh-15{ line-height:15px;}
+    .lh-20{ line-height:20px;}
+    .lh-25{ line-height:25px;}
+    .lh-30{ line-height:30px;}
+    .lh-15per{ line-height:150%;}
+    .lh-20per{ line-height:200%;}
+
+    .mt-5{ margin-top:5px;}
+    .mt-8{ margin-top:8px;}
+    .mt-10{ margin-top:10px;}
+    .mt-15{ margin-top:15px;}
+    .mt-20{ margin-top:20px;}
+    .mt-25{ margin-top:25px;}
+    .mt-30{ margin-top:30px;}
+    .mt-f30{ margin-top:-30px;}
+
+    .mb-5 { margin-bottom:5px; }
+    .mb-8 { margin-bottom:8px; }
+    .mb-10 { margin-bottom:10px; }
+    .mb-15 { margin-bottom:15px; }
+    .mb-20 { margin-bottom:20px; }
+    .mb-30 { margin-bottom:30px; }
+    .mb-f30 { margin-bottom:-30px; }
+
+    .color-ffffff { color:#ffffff; }
+    .color-187cb7 { color:#187cb7; }
+    .color-4b4b4b { color:#4b4b4b; }
+    /* 1.布局通用样式设置  结束 */
+
+    /* 2.横纵布局样式设置  开始 */
+    .div-1000 {margin-left:auto;margin-right:auto; width:1000px; height:auto; overflow: hidden;  }
+    .div-1200 {margin-left:auto;margin-right:auto; width:1200px; height:auto; overflow: hidden;  }
+    .div-100per {margin-left:auto;margin-right:auto; width:100%; height:auto; overflow: hidden;  }
+
+    .wid-100per { width:100% ;  }
+    .wid-95per { width:95% ;  }
+    .wid-90per { width:90% ;  }
+    .wid-85per { width:85% ;  }
+    .wid-80per { width:80% ;  }
+
+    .wid_20 { width:20px;}
+    .wid_50 { width:50px;}
+    .wid_60 { width:60px;}
+    .wid_70 { width:70px;}
+    .wid_80 { width:80px;}
+    .wid_90 { width:90px;}
+    .wid_100 { width:100px;}
+    .wid_120 { width:120px;}
+    .wid_150 { width:150px;}
+    .wid_170 { width:170px;}
+    .wid_200 { width:200px;}
+    .wid_220 { width:220px;}
+    .wid_250 { width:250px;}
+    .wid_270 { width:270px;}
+    .wid_300 { width:300px;}
+    .wid_320 { width:320px;}
+    .wid_350 { width:350px;}
+    .wid_380 { width:380px;}
+    .wid_400 { width:400px;}
+    .wid_430 { width:430px;}
+    .wid_460 { width:460px;}
+    .wid_500 { width:500px;}
+    /* 2.横纵布局样式设置  结束 */
+    .a-top{
+        height: 128px;
+        width: 1000px;
+        margin: 0px auto;
+        position: relative;
+    }
+    .a-1949-badge{
+        background: url(http://ssdut.dlut.edu.cn/images/a_bg_1.png) no-repeat center;
+        position: absolute;
+        right: 110px;
+        top:0px;
+        width: 336px;
+        height: 198px;
+        z-index: 0;
+    }
+    .a-logo{
+        position:absolute;
+        left: 33px;
+        top:38px;
+    }
+    .a-search{
+        position: absolute;
+        top: 70px;
+        right: -2px;
+    }
+    .a-warp{ width:1000px; margin:0 auto;}
+    .a-banner{ margin-top:7px;}
+    .a-subnav{
+        height:58px;
+        background:#036eb8;
+    }
+    .a-subnav ul {
+        width:880px;
+        margin:0px auto;
+        padding-top:6px;
+    }
+    .a-subnav ul li{
+        float:left;
+        border-top:#ebebeb solid 12px;
+        width:110px;
+    }
+    .a-subnav ul li a{
+        color:#addffb;
+        font-size:15px;
+        display:block;
+        line-height:40px;
+        font-weight:900;
+        width:110px;
+        text-align:center;
+    }/*display 是样式展示？*/
+    /*伪类？*/
+    .a-subnav ul li a:hover, .a-subnav ul li .a-subnav_select{
+        border-top:#ff3b0e solid 12px;
+        display:block;
+        margin-top:-12px;
+        line-height:42px;
+        font-weight:900;
+        color:#fff;
+        width:110px;
+    }
+    .a-content{
+        clear:both;
+    }
+    .a-content-left{
+        float:left;
+        width:783px;
+    }
+    .a-content-left .a-global-dg{
+        float:left;
+        width:384px;
+    }
+    .a-content-right{
+        float:right;
+        width:206px;
+    }
+    .a-alt-1 {
+        height:280px;
+    }
+    .a-alt-1 .a-dg-1{
+        padding:10px 8px;
+    }
+    .a-alt-1 h4{
+        border-bottom:#036eb8 solid 2px;
+        height:50px;
+        line-height:50px;
+        font-size:16px;
+        color:#036eb8;
+        position:relative;
+    }
+   /*伪类怎么用？ .a-alt-1 h4 a{
+        background:url(../images/a_script.png) no-repeat 0px -26px;
+        width:19px;
+        height:19px;
+        position:absolute;
+        right:18px;
+        top:20px;
+        display:block;
+        text-indent:-999px;
+        overflow: hidden;
+    }*/
+    .a-alt-1 .a-content-img{
+        float:left;
+        width:100px;
+    }
+    .a-alt-1 .a-dg-1 dl{
+        float:left;
+        width:230px;
+        padding-left:24px;
+        font-family:"宋体";
+        position:relative;
+    }
+    .a-alt-1 .a-dg-1 dl dt{
+        color:#242424;
+        font-size:14px;
+        font-weight:900;
+    }
+    .a-alt-1 .a-dg-1 dl dd{
+        font-size:12px;
+        line-height:20px;
+        padding-top:5px;
+    }
+    .a-alt-1 .a-dg-1 dl b{
+        position:absolute;
+        color:#036eb8;
+        right:27px;
+        font-weight:100;
+    }
+    .a-alt-1 .a-dg-1 dl span a{
+    background:url(../images/a_script.png) no-repeat 50px -4px;
+        width:60px;
+        height:18px;
+        position:absolute;
+        color:#036eb8; right:66px;
+        display:block
+    }
+    .a-alt-2{
+        margin-left:14px;
+        height:280px;
+    }
+    .a-alt-2 h4{
+        border-bottom:#036eb8 solid 2px;
+        height:50px;
+        line-height:50px;
+        font-size:16px;
+        color:#036eb8;
+        position:relative;
+    }
+    .a-alt-2 ul {
+        width: 383px;
+        padding: 7px 0;
+    }
+    /*不知道有啥用？
+    .a-alt-2 h4 a{
+        background:url(../images/a_script.png) no-repeat 0px -26px;
+        width:19px;
+        height:19px;
+        position:absolute;
+        right:18px;
+        top:20px;
+        display:block;
+        text-indent:-999px;
+        overflow: hidden;
+    }
+    */
+    .a-alt-4{
+        margin-left:14px;
+    }
+    .a-dgl-left h4{
+        height:50px;/*？？？*/
+        line-height:50px;
+        font-size:16px;
+        color:#036eb8;
+    }
+
+    .a-search-input{
+        width:210px;
+        height:18px;
+        background-color:transparent;
+        border:#ffffff solid 2px;
+        border-radius:2px;
+        color:#ebebeb;
+        font-weight:900;
+        text-indent:6px;
+        line-height:18px;
+    }
+    .a-search-subtn{
+        background:url(http://ssdut.dlut.edu.cn/images/topsopic.png) no-repeat;
+        width:22px;
+        height:22px;
+        text-indent:-9999px;
+        overflow:hidden;
+        border:0;
+        border-radius:2px;
+        cursor:pointer;
+    }
+    .placeholder {
+        height: 10px;
+        overflow: hidden;
+        clear: both;
+    }
+    .a-footer {
+        width: 100%;
+        height: 90px;
+        background: #036eb8;
+        clear: both;
+        overflow: hidden;
+    }
+    .a-footer-p {
+        width: 1000px;
+        margin: 0 auto;
+    }
+    .a-copyright {
+        float: left;
+        color: #fff;
+        line-height: 28px;
+        padding-top: 18px;
+    }
+    .a-footer-p .a-onsite {
+        float: right;
+        color: #fff;
+        padding-top: 18px;
+    }
+    .a-footer-p .a-onsite a{
+        color:#fff;
+    }
+    .change1 a:hover{
+        color: #ff3b0e !important;
+    }
+    .a-hide a:hover{
+        color: #ffffff !important;
+    }
+    #a-menu .a-toolbar1{
+        background:#fff;
+        height: 44px;
+        position:relative;
+        z-index:1
+    }
+
+    #a-menu .a-toolbar1 .a-centrebox{
+        width: 1000px;
+        height:44px;
+        margin: 0 auto;
+    }
+    #a-menu .a-toolbar1 .a-centrebox .a-menu-1 {
+        height: 44px;
+        width: 1000px;
+        float: left;
+        background-color: #ffffff;
+    }
+    #a-menu .a-toolbar1 .a-centrebox .a-menu-1 .a-List1{
+        float: left;
+        text-align: center;
+        list-style-type:none;
+        height: 44px;
+        position:relative;
+        left:20px;
+    }
+    #a-menu .a-toolbar1 .a-centrebox .a-menu-1 .a-List1 li {
+        padding:0 12px;
+        border-right:#e5e5e5 solid 1px;
+        float: left;
+        height: 44px;
+        line-height: 44px;
+    }
+    /*？*/
+    #a-menu .a-toolbar1 .a-centrebox .a-menu-1 .a-List1 .a-select a{
+        color:#ff3b0e;
+    }
+
+    #a-menu .a-toolbar1 .a-centrebox .a-menu-1 .a-List1 a{
+        color:#242424;
+        font-size:15px;
+    }
+    #a-menu .a-toolbar2 {
+        height: 33px;
+        clear: both;
+
+    }
+    #a-menu .a-toolbar2 .a-centrebox {
+        height: 29px;
+        width: 1000px;
+        margin:0 auto;
+        background:#025893;
+    }
+    #a-menu .a-toolbar2 .a-centrebox .a-menu-1 {
+        position: relative;
+        overflow: hidden;
+        height: 29px;
+        width: 700px;
+        margin:0 auto;
+    }
+    #a-menu .a-toolbar2 .a-centrebox .a-menu-1 ul {
+        list-style-type: none;
+        height: 29px;
+        position: absolute;
+    }
+    #a-menu .a-toolbar2 .a-centrebox .a-menu-1 ul li {
+        /*background:url(http://ssdut.dlut.edu.cn/images/a_bg.png) no-repeat 0px -92px;*/
+        float: left;
+        height: 29px;
+        text-align: center;
+        line-height: 27px;
+        padding:0px 12px;
+    }
+    /*上下图像链接？？？*/
+    #a-menu .a-toolbar2 .a-centrebox .a-menu-1 ul li b{
+        /*background:url(http://ssdut.dlut.edu.cn/images/a_bg.png) no-repeat 0px -92px; display:block;*/
+        float:right;
+        height:30px;
+        width:3px;
+    }
+    #a-menu .a-toolbar2 .a-centrebox .a-menu-1 ul li a {
+        color: #b1dfff;
+        font-size: 12px;
+    }
+    /*怎么是触及变色？*/
+    #a-menu .a-toolbar2 .a-centrebox .a-menu-1 ul .a-select a {
+        color:#fff
+    }
+    .a-language{  position:relative;  }
+    .a-english-Japan{
+        position:absolute;
+        right:45px;
+        top:5px;
+    }
+    .a-english-Japan a{
+        font-size:12px;
+        padding:2px 0px;
+        display:block;
+    }
+
+</style>
+<body>
+<div class="a-top">
+    <div class="a-1949-badge"></div><!--是否需要no-repet 和center?-->
+    <div class="a-logo">
+        <img height="67" width="381" src="http://ssdut.dlut.edu.cn/images/a_logo.png">
+    </div>
+    <div class="a-search">
+        <!--缺失javascript-->
+        <form>
+           <!--搜索栏不会-->
+        </form>
+    </div>
+</div>
+<!--二级菜单栏 开始-->
+<div id="a-menu">
+    <div class="a-toolbar1">
+        <div class="a-centrebox a-language">
+            <div  class="a-menu-1">
+                <ul class="a-List1" >
+                    <li class="change1" onmouseover="showDiv('div0')" onmouseout="hiddenDiv('div0')" >
+                        <a href="" >首页</a>
+                    </li>
+                    <li class="change1" onmouseover="showDiv('div2')" onmouseout="hiddenDiv('div2')">
+                        <a href="http://ssdut.dlut.edu.cn/xygk1/xygk.htm" target="_blank"  >学院概况</a>
+                    </li>
+                    <li class="change1" onmouseover="showDiv('div3')" onmouseout="hiddenDiv('div3')">
+                        <a href="http://ssdut.dlut.edu.cn/ywgg/xueyuanxinwen.htm" target="_blank" >院务公告</a>
+                    </li>
+                    <li class="change1" onmouseover="showDiv('div4')" onmouseout="hiddenDiv('div4')">
+                        <a href="http://ssdut.dlut.edu.cn/xkyky/xkjs.htm" target="_blank" >学科与科研</a>
+                    </li>
+                    <li class="change1" onmouseover="showDiv('div5')" onmouseout="hiddenDiv('div5')">
+                        <a href="http://ssdut.dlut.edu.cn/szdw/szgk.htm" target="_blank">师资队伍</a>
+                    </li>
+                    <li class="change1" onmouseover="showDiv('div6')" onmouseout="hiddenDiv('div6')">
+                        <a >本科生培养</a>
+                    </li>
+                    <li class="change1" onmouseover="showDiv('div0')" onmouseout="hiddenDiv('div0')">
+                        <a href="http://ssdut.dlut.edu.cn/yjspy.htm" target="_blank" >研究生培养</a>
+                    </li>
+                    <li class="change1" onmouseover="showDiv('div8')" onmouseout="hiddenDiv('div8')">
+                        <a href="http://ssdut.dlut.edu.cn/zsjy.htm" target="_blank" >招生就业</a>
+                    </li>
+                    <li class="change1" onmouseover="showDiv('div9')" onmouseout="hiddenDiv('div9')">
+                        <a href="http://ssdut.dlut.edu.cn/djw.htm" target="_blank" >党群工作</a>
+                    </li>
+                    <li class="change1" onmouseover="showDiv('div10')" onmouseout="hiddenDiv('div10')">
+                        <a href="http://ssdut.dlut.edu.cn/hzjl.htm" target="_blank">合作交流</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="a-english-Japan">
+                <a href="#">日本語</a>
+                <a href="http://oldssdut.dlut.edu.cn/English/">ENGLISH</a>
+            </div>
+        </div>
+    </div>
+    <div id="div0" class="a-toolbar2" style="float:left;width:100%;position:absolute;z-index:999 ;display: none;" onmouseover="showDiv(this.id)" onmouseout="hiddenDiv(this.id)" >
+        <div  class="a-centrebox">
+            <div id="div2" class="a-menu-1 a-hide" style="display: none;margin-left: 45px;" onmouseover="showDiv(this.id)" onmouseout="hiddenDiv(this.id)" >
+                <ul>
+                    <li style="background:none" >
+                        <a href="https://www.baidu.com/?tn=sitehao123">学院简介</a>
+                    </li>
+                    <li style="background:none">
+                        <a href="https://www.baidu.com/?tn=sitehao123">现任领导</a>
+                    </li>
+                    <li style="background:none">
+                        <a href="https://www.baidu.com/?tn=sitehao123">机构设置</a>
+                    </li>
+                    <li style="background:none">
+                        <a href="https://www.baidu.com/?tn=sitehao123">学院风光</a>
+                    </li>
+                    <li style="background:none">
+                        <a href="https://www.baidu.com/?tn=sitehao123">院史展厅</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="div3" class="a-menu-1 a-hide" style="margin-left:95px; display: none" onmouseover="showDiv(this.id)" onmouseout="hiddenDiv(this.id)" >
+                <ul>
+                    <li style="background:none">
+                        <a href="https://www.baidu.com/?tn=sitehao123">学院新闻</a>
+                    </li>
+                    <li style="background:none">
+                        <a href="https://www.baidu.com/?tn=sitehao123?urltype=tree.TreeTempUrl&amp;wbtreeid=1216" target="_blank">院务公开</a>
+                    </li>
+                    <li style="background:none">
+                        <a href="https://www.baidu.com/?tn=sitehao123?urltype=tree.TreeTempUrl&amp;wbtreeid=1216" target="_blank">院内文件</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="div4" class="a-menu-1 a-hide" style="margin-left:185px; display: none" onmouseover="showDiv(this.id)" onmouseout="hiddenDiv(this.id)" >
+                <ul>
+                    <li style="background:none">
+                        <a href="https://www.baidu.com/?tn=sitehao123">学科建设</a>
+                    </li>
+                    <li style="background:none">
+                        <a href="https://www.baidu.com/?tn=sitehao123">研究机构</a>
+                    </li>
+                    <li style="background:none">
+                        <a href="https://www.baidu.com/?tn=sitehao123">科研成果</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="div5" class="a-menu-1 a-hide" style="margin-left:320px; display: none" onmouseover="showDiv(this.id)" onmouseout="hiddenDiv(this.id)" >
+                <ul>
+                    <li style="background:none">
+                        <a href="https://www.baidu.com/?tn=sitehao123">师资概况</a>
+                    </li>
+                    <li style="background:none">
+                        <a href="https://www.baidu.com/?tn=sitehao123">教师信息</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="div6" class="a-menu-1 a-hide" style="margin-left:400px; display: none" onmouseover="showDiv(this.id)" onmouseout="hiddenDiv(this.id)" >
+                <ul>
+                    <li style="background:none">
+                        <a href="https://www.baidu.com/?tn=sitehao123" target="_blank">本科生教学</a>
+                    </li>
+                    <li style="background:none">
+                        <a href="https://www.baidu.com/?tn=sitehao123" target="_blank">本科生管理</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="div8" class="a-menu-1 a-hide" style="margin-left:530px; display: none"  onmouseover="showDiv(this.id)" onmouseout="hiddenDiv(this.id)" >
+                <ul>
+                    <li style="background:none">
+                        <a href="zhttps://www.baidu.com/?tn=sitehao123" target="_blank">招生简章</a>
+                    </li>
+                    <li style="background:none">
+                        <a href="https://www.baidu.com/?tn=sitehao123" target="_blank">就业信息</a>
+                    </li>
+                    <li style="background:none">
+                        <a href="https://www.baidu.com/?tn=sitehao123" target="_blank">实习信息</a>
+                    </li>
+                    <li style="background:none">
+                        <a href="https://www.baidu.com/?tn=sitehao123" target="_blank">就业指导</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="div9" class="a-menu-1 a-hide" style="margin-left:680px; display: none" onmouseover="showDiv(this.id)" onmouseout="hiddenDiv(this.id)" >
+                <ul>
+                    <li style="background:none">
+                        <a href="http://210.30.96.38:83/" target="_blank">工会之家</a>
+                    </li>
+                    <li style="background:none">
+                        <a href="https://www.baidu.com/?tn=sitehao123" target="_blank">党建园地</a>
+                    </li>
+                </ul>
+            </div>
+            <div id="div10" class="a-menu-1 a-hide" onmouseover="showDiv(this.id)" onmouseout="hiddenDiv(this.id)" ></div>
+        </div>
+
+    </div>
+</div>
+<div></div>
+<script language="javascript" type="text/javascript">
+    //显示层
+    function showDiv(divName)
+    {
+        document.getElementById(divName).style.display = "block";
+        document.getElementById("div0").style.display = "block";
+    }
+    //隐藏层
+    function hiddenDiv(divName)
+    {
+        document.getElementById(divName).style.display = "none";
+        document.getElementById("div0").style.display = "none";
+    }
+</script>
+<!--二级菜单 end-->
+<!-- 其实不会   二级菜单隐藏特效  开始 -->
+<!--script type="text/javascript">
+    $(document).ready(function(){
+
+        $(".a-List1,.a-toolbar2").mouseover(function(){
+            $(".a-toolbar2").show();
+        });
+
+        $(".a-List1,.a-toolbar2").mouseout(function(){
+            $(".a-toolbar2").hide();
+        });
+    });
+</script-->
+<!-- 二级菜单隐藏特效  结束 -->
+<!--#endeditable-->
+<div class="a-warp">
+    <div class="a-banner">
+        <!--#begineditable name="banner变换" viewid="67702"
+        tagname="banner变换" action="" layout="" contype=""
+        stylesysid="" template="" tplstyle="" clone="0"-->
+        <style type="text/css">
+            ul,li{
+                padding:0;
+                margin:0;
+                list-style:none;
+            }
+            #flashBoxu_u2_{
+                width:1000px;
+                height:352px;
+                border:0px solid #EEE;
+                position:relative;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            #flashBoxu_u2_ img{
+            /*初始不要显示*/
+                display:none;
+            /*用边框来实现空位，因为margin和paading有时会引起些麻烦*/
+                border:0px solid #FFF;
+            }
+            #flashBoxu_u2_ ul{
+                position:absolute;
+                right:7px;
+                bottom:3px;
+                font:9px tahoma;
+            }
+            #flashBoxu_u2_ ul li{
+                display:block;
+                float:left;
+                width:12px;
+                height:12px;
+                line-height:12px;
+                margin-right:3px;
+                border:0px solid #999;
+                background:#F0F0F0;
+                text-align:center;
+                cursor:pointer;
+            }
+            #flashBoxu_u2_ ul li.hover{
+                border-color:red;
+                background:#FFE1E1;
+                color:red;
+            }
+    </style>
+       <!--轮播图不会script type="text/javascript">
+            function flashBoxCtrl(o){
+                this.obj=document.getElementById(o);
+                //这个私有方法虽然写了，但暂时没用到
+                function addListener(ele,eventName,functionBody){
+                    if (ele.attachEvent){
+                        ele.attachEvent("on"+eventName, functionBody);
+                    }else if (ele.addEventListener){
+                        ele.addEventListener("on"+eventName,functionBody, false);
+                    }else{
+                        return false;
+                    }
+                }
+                //初始化
+                this.init=function(){
+                    var objImg=this.obj.getElementsByTagName("img");
+                    var tagLength=objImg.length;
+                    if (tagLength>0){
+                        var oUl=document.createElement("ul");
+                        oUl.setAttribute("id",o+"numTag");
+                        for (var i=0;i<tagLength;i++){
+                            var oLi=oUl.appendChild(document.createElement("li"));
+                            if (i==0){
+                                oLi.setAttribute("class","hover"); //初始化时把第一个设置为高亮
+                                oLi.setAttribute("className","hover");
+                            }
+                            //设置标签的数字
+                            oLi.appendChild(document.createTextNode((i+1)));
+                        }
+                        this.obj.appendChild(oUl);
+                        objImg[0].style.display="block";
+                        //设置标签事件
+                        var oTag=this.obj.getElementsByTagName("li");
+                        for (var i=0;i<oTag.length;i++){
+                            var flag = 0;
+                            var temp = 0;
+                            var timeout=null;
+                            var step = function(){
+                                for (var j=0;j<oTag.length;j++){
+                                    oTag[j].className="";
+                                    objImg[j].style.display="none";
+                                }
+                                this.className="hover";
+                                flag = flag>=oTag.length-1?0:flag+1;
+                                objImg[flag].style.display="block";
+                                oTag[flag].className = "hover";
+                                timeout = setTimeout(step,4000);
+                            };
+                            oTag[i].onmouseover=function(){
+                                for (var j=0;j<oTag.length;j++){
+                                    oTag[j].className="";
+                                    objImg[j].style.display="none";
+                                    temp = j;
+                                }
+                                this.className="hover";
+                                objImg[this.innerHTML-1].style.display="block";
+                                temp = this.innerHTML-1;
+                                flag = i;
+                                clearInterval(timeout);
+                            }
+                            oTag[i].onmouseout = function(){
+                                for (var j=0;j<oTag.length;j++){
+                                    oTag[j].className="";
+                                    objImg[j].style.display="none";
+                                }
+                                flag = temp;
+                                objImg[temp].style.display="block";
+                                oTag[temp].className = "hover";
+                                timeout = setTimeout(step,4000);
+                            }
+                            if(i==0)
+                            {
+                                timeout = setTimeout(step,4000);
+                            }
+                        }
+                    }
+                };
+                //自动滚动的方法还没写
+                this.imgRoll=function(){};
+                //生成对象时自动加载init()方法以初始化对象
+                this.init();
+            }
+        </script-->
+        <table border="0" cellpadding="0" cellspacing="0">
+            <tbody>
+            <tr>
+                <td>
+                    <div id="flashBoxu_u2_">
+                        <a href="http://pic.pp3.cn/uploads//allimg/111116/11021321R-4.jpg" target="_blank">
+                            <img style="display: block;" src="http://ssdut.dlut.edu.cn/images/a_banner.png" border="0" width="1000" height="352">
+                        </a>
+                        <ul id="flashBoxu_u2_numTag">
+                            <li classname="hover" class="hover">1</li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <!--script language="JavaScript">
+            new flashBoxCtrl("flashBoxu_u2_");
+        </script-->
+        <!--#endeditable-->
+    </div>
+    <div class="a-subnav" >
+        <ul>
+            <li style="width: 0px">
+                <a class="a-subnav_select" href="#" target="_blank" style="color: #025893">.</a>
+            </li>
+            <li>
+                <a  href="http://www.baidu.com" target="_blank">机构设置</a>
+            </li>
+            <li>
+                <a href="http://www.baidu.com" target="_blank">人才招聘</a>
+            </li>
+            <li>
+                <a href="http://210.30.96.38:8021/" target="_blank">图书资源</a>
+            </li>
+            <li>
+                <a href="#" target="_blank">实验中心</a>
+            </li>
+            <li>
+                <a href="http://210.30.96.191/" target="_blank">实践基地</a>
+            </li>
+            <li>
+                <a href="http://www.baidu.com" target="_blank">公共服务</a>
+            </li>
+            <li>
+                <a href="http://www.baidu.com" target="_blank">校友工作</a>
+            </li>
+            <li>
+                <a href="mailto:ssdut@dlut.edu.cn" target="_blank">院长信箱</a>
+            </li>
+        </ul>
+    </div>
+    <div class="a-content">
+        <div class="a-content-left clearfix">
+            <div class="a-global-dg a-alt-1">
+                <h4>
+                    焦点新闻
+                    <a class="fr" href="http://www.baidu.com">更多</a>
+                </h4>
+                <div class="a-dg-1 clearfix">
+                    <div class="a-content-img">
+                        <a target="_blank" href="http://www.baidu.com">
+                            <img src="http://pic.pp3.cn/uploads//allimg/111110/15594T106-10.jpg" height="95" width="125">
+                        </a>
+                    </div>
+                    <dl style="margin-left: 10px;">
+                        <dt style="line-height: 20px;">
+                            <a title="@@@@@@@@@" target="_blank" href="http://www.baidu.com">201620162016</a>
+                        </dt>
+                        <dd>新年快乐！新年快乐！新年快乐！新年快乐！新年快乐！新年快乐！新年快乐！新年快乐！</dd>
+                        <b>2016-01-25</b>
+                    </dl>
+                    <!--::after有什么用？-->
+                </div>
+                <div class="cb"></div>
+                <div class="a-dg-1 clearfix">
+                    <div class="a-content-img">
+                        <a href="http//:www.baidu.com" target="_blank">
+                            <img src="http://img5.imgtn.bdimg.com/it/u=3825578746,1708951943&fm=206&gp=0.jpg" width="125" height="95">
+                        </a>
+                    </div>
+                    <dl style="margin-left:10px">
+                        <dt style="line-height:20px">
+                            <a href="http//:www.baidu.com" target="_blank" title="@@@@@@@@@@@@@">201520152015201520152015</a>
+                        </dt>
+                        <dd>再见！再见！再见！再见！再见！再见！再见！再见！再见！再见！再见！再见！再见！再见！再见！</dd>
+                        <b>2015-12-29</b>
+                    </dl>
+                </div>
+                <div class="cb"></div>
+                <!--javascript不会-->
+            </div>
+            <div class="a-global-dg a-alt-2">
+                <h4>
+                    综合新闻<a class="fr" href="http://www.baidu.com">更多</a>
+                </h4>
+                <ul>
+                    <li style="display:block;float:left;width:99%;height:auto;line-height:35px;border-bottom:1px #ccc dashed;font-size:13px">
+                        <a href="http://www.baidu.com" target="_blank"  style="display:block;float:left">Pancake</a>
+                        <span class="fr" style="color:#3d6ec8">2016-01-25</span>
+                    </li>
+                    <li style="display:block;float:left;width:99%;height:auto;line-height:35px;border-bottom:1px #ccc dashed;font-size:13px">
+                        <a href="http://www.baidu.com" target="_blank"  style="display:block;float:left">Pancake</a>
+                        <span class="fr" style="color:#3d6ec8">2016-01-25</span>
+                    </li>
+                    <li style="display:block;float:left;width:99%;height:auto;line-height:35px;border-bottom:1px #ccc dashed;font-size:13px">
+                        <a href="http://www.baidu.com" target="_blank"  style="display:block;float:left">Pancake</a>
+                        <span class="fr" style="color:#3d6ec8">2016-01-25</span>
+                    </li>
+                    <li style="display:block;float:left;width:99%;height:auto;line-height:35px;border-bottom:1px #ccc dashed;font-size:13px">
+                        <a href="http://www.baidu.com" target="_blank"  style="display:block;float:left">Pancake</a>
+                        <span class="fr" style="color:#3d6ec8">2016-01-25</span>
+                    </li>
+                    <li style="display:block;float:left;width:99%;height:auto;line-height:35px;border-bottom:1px #ccc dashed;font-size:13px">
+                        <a href="http://www.baidu.com" target="_blank"  style="display:block;float:left">Pancake</a>
+                        <span class="fr" style="color:#3d6ec8">2016-01-25</span>
+                    </li>
+                    <li style="display:block;float:left;width:99%;height:auto;line-height:35px;border-bottom:1px #ccc dashed;font-size:13px">
+                        <a href="http://www.baidu.com" target="_blank"  style="display:block;float:left">Pancake</a>
+                        <span class="fr" style="color:#3d6ec8">2016-01-25</span>
+                    </li>
+                    <li style="display:block;float:left;width:99%;height:auto;line-height:35px;border-bottom:1px #ccc dashed;font-size:13px">
+                        <a href="http://www.baidu.com" target="_blank"  style="display:block;float:left">Pancake</a>
+                        <span class="fr" style="color:#3d6ec8">2016-01-25</span>
+                    </li>
+                    <div class="cb"></div>
+                    <!--script>_showDynClickBatch(['dynclicks_u4_5113','dynclicks_u4_5109','dynclicks_u4_5107','dynclicks_u4_5102','dynclicks_u4_5100','dynclicks_u4_5099'],[5113,5109,5107,5102,5100,5099],"wbnews", 1013026669)</script>
+                    <!--#endeditable-->
+                </ul>
+            </div>
+            <div class="a-global-dg a-alt-3">
+                <div class="a-dg-tab">
+                    <div class="xi-index-tab">
+                        <div style="border-bottom: #036eb8 2px solid;width: 100%;display: block;float: left;height: auto;font-size: 15px">
+                            <span class="xi-tab-1" style="padding-left: 20px; width: auto; padding-right: 20px; display: block; background: rgb(3, 110, 184) none repeat scroll 0% 0%; float: left; height: 30px; color: rgb(255, 255, 255); font-weight: bold; padding-top: 10px;">学院通知</span>
+                            <span class="xi-tab-2" style="padding-left: 20px; width: auto; padding-right: 20px; display: block; background: rgb(255, 59, 14) none repeat scroll 0% 0%; float: left; height: 30px; color: rgb(255, 255, 255); font-weight: bold; padding-top: 10px;">学术动态</span>
+                            <span class="xi-more-2" style="float: right; padding-top: 10px;">
+                                <a class="fr" href="index/xsdt.htm" style="font-size: 17px;font-weight: 900">更多</a>
+                            </span>
+                        </div>
+                        <div style="clear: both"></div>
+                        <ul class="" style="display: block">
+                            <li style="display: block;float: left;width: 99%;height: auto;line-height: 35px;border-bottom: 1px #ccc dashed;font-size: 13px">
+                                <a href="http://www.baidu.com" target="_blank" title="Panacake">Pancake</a>
+                                <span class="fr" style="color:#3d6ec8">2016-01-08</span>
+                            </li>
+                            <li style="display: block;float: left;width: 99%;height: auto;line-height: 35px;border-bottom: 1px #ccc dashed;font-size: 13px">
+                                <a href="http://www.baidu.com" target="_blank" title="Panacake">Pancake</a>
+                                <span class="fr" style="color:#3d6ec8">2016-01-08</span>
+                            </li>
+                            <li style="display: block;float: left;width: 99%;height: auto;line-height: 35px;border-bottom: 1px #ccc dashed;font-size: 13px">
+                                <a href="http://www.baidu.com" target="_blank" title="Panacake">Pancake</a>
+                                <span class="fr" style="color:#3d6ec8">2016-01-08</span>
+                            </li>
+                            <li style="display: block;float: left;width: 99%;height: auto;line-height: 35px;border-bottom: 1px #ccc dashed;font-size: 13px">
+                                <a href="http://www.baidu.com" target="_blank" title="Panacake">Pancake</a>
+                                <span class="fr" style="color:#3d6ec8">2016-01-08</span>
+                            </li>
+                            <li style="display: block;float: left;width: 99%;height: auto;line-height: 35px;border-bottom: 1px #ccc dashed;font-size: 13px">
+                                <a href="http://www.baidu.com" target="_blank" title="Panacake">Pancake</a>
+                                <span class="fr" style="color:#3d6ec8">2016-01-08</span>
+                            </li>
+                            <li style="display: block;float: left;width: 99%;height: auto;line-height: 35px;border-bottom: 1px #ccc dashed;font-size: 13px">
+                                <a href="http://www.baidu.com" target="_blank" title="Panacake">Pancake</a>
+                                <span class="fr" style="color:#3d6ec8">2016-01-08</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="a-global-dg a-alt-4">
+                <div class="xi-index-tab">
+                    <div style="border-bottom:#036eb8 2px solid;width: 100%;display: block;float:left;height: auto;font-size: 15px">
+                        <span class="xi-tab-3" style="padding-left: 20px; width: auto; padding-right: 20px; display: block; background: rgb(3, 110, 184) ; float: left; height: 30px; color: rgb(255, 255, 255); font-weight: bold; padding-top: 10px;">本科生通知</span>
+                        <span class="xi-tab-3" style="padding-left: 20px; width: auto; padding-right: 20px; display: block; background: red ; float: left; height: 30px; color: rgb(255, 255, 255); font-weight: bold; padding-top: 10px;">研究生通知</span>
+                        <span class="xi-more-3" style="float: right; padding-top: 10px; display: none;">
+                            <a class="fr" href="http://www.baidu.com" style="font-size: 18;font-weight: 900;">更多</a>
+                        </span>
+                    </div>
+                    <div class="clear:both"></div>
+                    <ul class="" style="display: block">
+                        <li style="display: block;float: left;width: 99%;height: auto;line-height: 35px;border-bottom: 1px #ccc dashed;font-size: 13px">
+                          <a href="http://www.baidu.com" target="_blank" title="Panacake">Pancake</a>
+                            <span class="fr" style="color:#3d6ec8">2016-01-08</span>
+                        </li>
+                        <li style="display: block;float: left;width: 99%;height: auto;line-height: 35px;border-bottom: 1px #ccc dashed;font-size: 13px">
+                            <a href="http://www.baidu.com" target="_blank" title="Panacake">Pancake</a>
+                            <span class="fr" style="color:#3d6ec8">2016-01-08</span>
+                        </li>
+                        <li style="display: block;float: left;width: 99%;height: auto;line-height: 35px;border-bottom: 1px #ccc dashed;font-size: 13px">
+                            <a href="http://www.baidu.com" target="_blank" title="Panacake">Pancake</a>
+                            <span class="fr" style="color:#3d6ec8">2016-01-08</span>
+                        </li>
+                        <li style="display: block;float: left;width: 99%;height: auto;line-height: 35px;border-bottom: 1px #ccc dashed;font-size: 13px">
+                            <a href="http://www.baidu.com" target="_blank" title="Panacake">Pancake</a>
+                            <span class="fr" style="color:#3d6ec8">2016-01-08</span>
+                        </li>
+                        <li style="display: block;float: left;width: 99%;height: auto;line-height: 35px;border-bottom: 1px #ccc dashed;font-size: 13px">
+                            <a href="http://www.baidu.com" target="_blank" title="Panacake">Pancake</a>
+                            <span class="fr" style="color:#3d6ec8">2016-01-08</span>
+                        </li>
+                        <li style="display: block;float: left;width: 99%;height: auto;line-height: 35px;border-bottom: 1px #ccc dashed;font-size: 13px">
+                            <a href="http://www.baidu.com" target="_blank" title="Panacake">Pancake</a>
+                            <span class="fr" style="color:#3d6ec8">2016-01-08</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="a-content-right">
+            <div class="a-dgl-left">
+                <h4>快速导航</h4>
+                <div class="a-dgl-quick">
+                    <a target="_blank" href="http://www.baidu.com">
+                        <img height="60" width="206" src="http://ssdut.dlut.edu.cn/images/lg1.png">
+                    </a>
+                    <a href="http://www.baidu.com">
+                        <img height="60" width="206" src="http://ssdut.dlut.edu.cn/images/lg2.png">
+                    </a>
+                </div>
+                <div class="a-dgl-quick">
+                    <a target="_blank" href="http://www.baidu.com">
+                        <img  src="http://ssdut.dlut.edu.cn/images/denglu1.jpg">
+                    </a>
+                    <a href="http://www.baidu.com">
+                        <img  src="http://ssdut.dlut.edu.cn/images/denglu2.jpg">
+                    </a>
+                </div>
+                <div style="clear: both"></div>
+                <div class="a-dgl-left2">
+                    <h4>专题栏目</h4>
+                    <a href="http://www.baidu.com" target="_blank">
+                        <img src="http://ssdut.dlut.edu.cn/images/shiz.jpg" width="207" height="53">
+                    </a>
+                    <a href="#">
+                        <img src="http://ssdut.dlut.edu.cn/images/lg3.png" width="207" height="53">
+                    </a>
+                    <a href="http://oldssdut.dlut.edu.cn/GCSS">
+                        <img src="http://ssdut.dlut.edu.cn/images/1.gif" width="207" height="53">
+                    </a>
+                </div>
+                <div class="a-dgl-left3">
+                    <h4>热点链接</h4>
+                    <ul class="clearfix">
+                        <li style="text-align: left;width: 160px;display: block;float: left;height: 25px;margin-left:4px">
+                            <a href="http://218.61.196.241/jw">软件学院教务办公系统</a>
+                        </li>
+                        <li style="text-align: center;width: 60px;display: block;float: left;height: 25px">
+                            <a href="http://www.baidu.com" target="_blank">人才招聘</a>
+                        </li>
+                        <li style="text-align: center;width: 70px;display: block;float: left;height: 25px">
+                            <a href="#">专业设置</a>
+                        </li>
+                        <li style="text-align: center;width: 60px;display: block;float: left;height: 25px">
+                            <a href="http://ssdut.dlut.edu.cn/denglu/denglukou.jsp?urltype=tree.TreeTempUrl&amp;wbtreeid=1216">教工频道</a>
+                        </li>
+                        <li style="text-align: center;width: 60px;display: block;float: left;height: 25px">
+                            <a href="mailto:ssdut@dlut.edu.cn">院长信箱</a>
+                        </li>
+                        <li style="text-align: center;width: 70px;display: block;float: left;height: 25px">
+                            <a href="#">Ftp资源下载</a>
+                        </li>
+                        <li style="text-align: center;width: 60px;display: block;float: left;height: 25px">
+                            <a href="http://ssdut.dlut.edu.cn/images/qrcode_for_gh_3fabc3352483_258.jpg">官方微信</a>
+                        </li>
+                    </ul>
+                    <!--p>&nbsp;这是啥？
+                        <br>&nbsp;
+                        <br>&nbsp;
+                    </p-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="placeholder"></div><!--有什么用？-->
+<div class="placeholder" style="margin-top:-20px;"></div><!--????-->
+<div class="a-footer">
+    <div class="a-footer-p">
+        <div class="a-copyright">
+            <p>©版权所有：大连理工大学软件学院 地址：大连经济技术开发区图强街321号 </p>
+            <p>Email：ssdut@dlut.edu.cn 　电话：0411-62274467 辽ICP备09013925号 技术支持：
+                <a href="http://www.jiqunzhihui.com" target="_blank" style="color: #fff">集群智慧</a>
+            </p>
+        </div>
+        <div class="a-onsite">
+            <a href="http://www.baidu.com">首页</a>
+            -
+            <a href="http://www.baidu.com" target="_blank">教工登陆</a>
+            -
+            <a href="#">copy by pancake</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
